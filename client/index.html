@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<title>test</title>
+<style type="text/css">
+#test div { float:left; width:300px; height:150px;}
+</style>
+</head>
+<body>
+<div id="test"></div>
+<script type="text/javascript">
+var config = {
+    num : 13,
+    width : 300,
+    height : 150,
+    url : 'http://conan.baidu.com:8080/12306/'
+}
+var DIV = document.getElementById('test');
+
+for( var i = 1; i <= config.num; i++ ) {
+    genNewDiv(i);
+}
+
+
+function genNewDiv(id) {
+    var iframe = document.createElement('iframe');
+    iframe.src = config.url+"?id="+id;
+    iframe.width = config.width;
+    iframe.height = config.height;
+
+    var newDiv = document.createElement('div');
+
+    newDiv.appendChild(iframe);
+    DIV.appendChild(newDiv);
+}
+</script>
+</body>
+</html>
